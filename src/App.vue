@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import MangaBook from './components/MangaBook.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <MangaBook />
 </template>
