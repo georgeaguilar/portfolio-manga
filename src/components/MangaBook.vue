@@ -393,17 +393,17 @@ onUnmounted(() => {
 
     </div>
   </div>
-  <!-- Mobile spread navigation (phone only, when book is open) -->
+  <!-- Mobile spread navigation (phone only) -->
   <button
     v-if="bookIsOpen && isMobile && mobilePage === 0"
     class="mobile-nav-btn mobile-nav-btn--next"
     @click.stop="mobilePage = 1"
-  >›</button>
+  >></button>
   <button
     v-if="bookIsOpen && isMobile && mobilePage === 1"
     class="mobile-nav-btn mobile-nav-btn--prev"
     @click.stop="mobilePage = 0"
-  >‹</button>
+  ><</button>
   </div>
 
   <!-- Navigation -->
@@ -413,6 +413,7 @@ onUnmounted(() => {
     <button class="arrow-btn" :disabled="isNextDisabled" @click="nextPage">NEXT ▶</button>
   </div>
 </div>
+
 </template>
 
 <style>
@@ -479,26 +480,25 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 38px; height: 38px;
+  width: 36px; height: 36px;
   border-radius: 50%;
-  background: rgba(200,148,42,0.95);
-  border: 2px solid #c8942a;
-  color: #0a0a0a;
-  font-family: 'Bangers', cursive;
-  font-size: 1.6rem;
+  background: none;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.65);
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
   line-height: 1;
   cursor: pointer;
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  transition: transform 0.15s, background 0.15s;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.6));
+  transition: border-color 0.18s, color 0.18s, transform 0.15s, filter 0.18s;
 }
-.mobile-nav-btn:active {
-  background: #c8942a;
-  transform: translateY(-50%) scale(0.92);
-}
+.mobile-nav-btn:hover { border-color: #c8942a; color: #c8942a; filter: drop-shadow(0 0 4px rgba(200,148,42,0.4)); }
+.mobile-nav-btn:active { transform: translateY(-50%) scale(0.92); }
 .mobile-nav-btn--next { right: -19px; }
 .mobile-nav-btn--prev { left: -19px; }
 
