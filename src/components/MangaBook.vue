@@ -6,6 +6,17 @@ import originArcImg from '../assets/origin-arc.png'
 const TOTAL_PAGES = 5
 const currentPage = ref(0)
 
+// Open/close animation
+const bookIsOpen = computed(() => currentPage.value > 0)
+const sceneTransform = computed(() => {
+  if (!bookIsOpen.value) return 'translateX(0)'
+  // On tablet (bookScale > 1) center the full spread; on phone keep current page centered
+  return bookScale.value > 1 ? 'translateX(150px)' : 'translateX(0)'
+})
+const bookTransform = computed(() =>
+  bookIsOpen.value ? 'rotateX(3deg)' : 'rotateY(-20deg) rotateX(5deg)'
+)
+
 // Responsive scaling
 const bookScale = ref(1)
 const NATURAL_H = 600 // approximate natural height of book-shell content
@@ -95,8 +106,8 @@ onUnmounted(() => {
 <div class="book-shell" :style="bookShellStyle">
   <div class="hint-bar">◀ PREV PAGE — CLICK COVER TO OPEN — NEXT PAGE ▶</div>
 
-  <div class="scene">
-    <div class="book">
+  <div class="scene" :style="{ transform: sceneTransform }">
+    <div class="book" :style="{ transform: bookTransform }">
 
       <!-- Back cover -->
       <div class="back-cover">
@@ -451,6 +462,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
 .book {
@@ -458,8 +470,7 @@ body {
   width: 300px;
   height: 520px;
   transform-style: preserve-3d;
-  transform: rotateY(-20deg) rotateX(5deg);
-  transition: transform 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
 /* Back cover */
