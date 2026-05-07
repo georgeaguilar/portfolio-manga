@@ -83,7 +83,7 @@ function prevPage() {
   }
   if (currentPage.value <= 0) return
   currentPage.value--
-  mobilePage.value = 0
+  mobilePage.value = isMobile.value ? 1 : 0
 }
 function handlePageClick(i: number) {
   if (isFlipped(i)) prevPage()
