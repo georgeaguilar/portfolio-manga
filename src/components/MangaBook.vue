@@ -6,6 +6,36 @@ import originArcImg from '../assets/origin-arc.png'
 const TOTAL_PAGES = 5
 const currentPage = ref(0)
 
+// Responsive scaling
+const bookScale = ref(1)
+const NATURAL_H = 600 // approximate natural height of book-shell content
+
+function updateScale() {
+  const vw = window.innerWidth
+  const vh = window.innerHeight
+  // Open spread = ~620px (two 300px pages + spine); single page cover = ~350px
+  let byW: number
+  if (vw < 382) {
+    byW = Math.max(0.6, (vw - 32) / 350) // small phones: scale down
+  } else if (vw >= 620) {
+    byW = Math.min(1.6, (vw - 32) / 480) // tablets: scale up based on single-page width
+  } else {
+    byW = 1 // normal phones: natural size
+  }
+  const byH = Math.min(1.6, (vh - 32) / NATURAL_H)
+  bookScale.value = parseFloat(Math.min(byW, byH).toFixed(3))
+}
+
+const bookShellStyle = computed(() => {
+  const s = bookScale.value
+  if (Math.abs(s - 1) < 0.01) return {}
+  return {
+    transform: `scale(${s})`,
+    transformOrigin: 'top center',
+    marginBottom: `${Math.round(NATURAL_H * (s - 1))}px`,
+  }
+})
+
 const pageLabels = ['COVER', 'PAGE 1', 'PAGE 2', 'PAGE 3', 'PAGE 4', 'END']
 const indicatorText = computed(() => `${pageLabels[currentPage.value]} / ${TOTAL_PAGES}`)
 const isPrevDisabled = computed(() => currentPage.value === 0)
@@ -50,15 +80,19 @@ onMounted(() => {
   document.addEventListener('keydown', onKeydown)
   document.addEventListener('touchstart', onTouchStart)
   document.addEventListener('touchend', onTouchEnd)
+  updateScale()
+  window.addEventListener('resize', updateScale)
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', onKeydown)
   document.removeEventListener('touchstart', onTouchStart)
   document.removeEventListener('touchend', onTouchEnd)
+  window.removeEventListener('resize', updateScale)
 })
 </script>
 
 <template>
+<div class="book-shell" :style="bookShellStyle">
   <div class="hint-bar">◀ PREV PAGE — CLICK COVER TO OPEN — NEXT PAGE ▶</div>
 
   <div class="scene">
@@ -347,6 +381,7 @@ onUnmounted(() => {
     <span class="page-indicator">{{ indicatorText }}</span>
     <button class="arrow-btn" :disabled="isNextDisabled" @click="nextPage">NEXT ▶</button>
   </div>
+</div>
 </template>
 
 <style>
@@ -394,6 +429,12 @@ body {
   justify-content: center;
   min-height: 100vh;
   width: 100%;
+}
+
+.book-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hint-bar {
