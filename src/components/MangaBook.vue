@@ -8,10 +8,15 @@ const currentPage = ref(0)
 
 // Open/close animation
 const bookIsOpen = computed(() => currentPage.value > 0)
+const isMobile = computed(() => bookScale.value <= 1)
+// 0 = left page (back of prev), 1 = right page (front of current)
+const mobilePage = ref(0)
+
 const sceneTransform = computed(() => {
   if (!bookIsOpen.value) return 'translateX(0)'
-  // On tablet (bookScale > 1) center the full spread; on phone keep current page centered
-  return bookScale.value > 1 ? 'translateX(150px)' : 'translateX(0)'
+  if (bookScale.value > 1) return 'translateX(150px)' // tablet: center spread
+  // Mobile: translateX(300px) shows left page centered, translateX(0) shows right page
+  return mobilePage.value === 0 ? 'translateX(300px)' : 'translateX(0)'
 })
 const bookTransform = computed(() =>
   bookIsOpen.value ? 'rotateX(3deg)' : 'rotateY(-20deg) rotateX(5deg)'
@@ -65,10 +70,12 @@ function remainingEdges(i: number) {
 function nextPage() {
   if (currentPage.value >= TOTAL_PAGES) return
   currentPage.value++
+  mobilePage.value = 0
 }
 function prevPage() {
   if (currentPage.value <= 0) return
   currentPage.value--
+  mobilePage.value = 0
 }
 function handlePageClick(i: number) {
   if (isFlipped(i)) prevPage()
@@ -106,6 +113,7 @@ onUnmounted(() => {
 <div class="book-shell" :style="bookShellStyle">
   <div class="hint-bar">◀ PREV PAGE — CLICK COVER TO OPEN — NEXT PAGE ▶</div>
 
+  <div class="scene-wrapper">
   <div class="scene" :style="{ transform: sceneTransform }">
     <div class="book" :style="{ transform: bookTransform }">
 
@@ -385,6 +393,18 @@ onUnmounted(() => {
 
     </div>
   </div>
+  <!-- Mobile spread navigation (phone only, when book is open) -->
+  <button
+    v-if="bookIsOpen && isMobile && mobilePage === 0"
+    class="mobile-nav-btn mobile-nav-btn--next"
+    @click.stop="mobilePage = 1"
+  >›</button>
+  <button
+    v-if="bookIsOpen && isMobile && mobilePage === 1"
+    class="mobile-nav-btn mobile-nav-btn--prev"
+    @click.stop="mobilePage = 0"
+  >‹</button>
+  </div>
 
   <!-- Navigation -->
   <div class="nav-arrows">
@@ -447,6 +467,40 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.scene-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(200,148,42,0.95);
+  border: 2px solid #c8942a;
+  color: #0a0a0a;
+  font-family: 'Bangers', cursive;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  transition: transform 0.15s, background 0.15s;
+}
+.mobile-nav-btn:active {
+  background: #c8942a;
+  transform: translateY(-50%) scale(0.92);
+}
+.mobile-nav-btn--next { right: -19px; }
+.mobile-nav-btn--prev { left: -19px; }
 
 .hint-bar {
   font-family: 'Bangers', cursive;
