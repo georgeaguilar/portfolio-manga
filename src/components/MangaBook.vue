@@ -68,11 +68,19 @@ function remainingEdges(i: number) {
 }
 
 function nextPage() {
+  if (isMobile.value && bookIsOpen.value && mobilePage.value === 0) {
+    mobilePage.value = 1
+    return
+  }
   if (currentPage.value >= TOTAL_PAGES) return
   currentPage.value++
   mobilePage.value = 0
 }
 function prevPage() {
+  if (isMobile.value && bookIsOpen.value && mobilePage.value === 1) {
+    mobilePage.value = 0
+    return
+  }
   if (currentPage.value <= 0) return
   currentPage.value--
   mobilePage.value = 0
@@ -393,17 +401,6 @@ onUnmounted(() => {
 
     </div>
   </div>
-  <!-- Mobile spread navigation (phone only) -->
-  <button
-    v-if="bookIsOpen && isMobile && mobilePage === 0"
-    class="mobile-nav-btn mobile-nav-btn--next"
-    @click.stop="mobilePage = 1"
-  >></button>
-  <button
-    v-if="bookIsOpen && isMobile && mobilePage === 1"
-    class="mobile-nav-btn mobile-nav-btn--prev"
-    @click.stop="mobilePage = 0"
-  ><</button>
   </div>
 
   <!-- Navigation -->
@@ -476,31 +473,6 @@ body {
   justify-content: center;
 }
 
-.mobile-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: none;
-  border: 1.5px solid rgba(255,255,255,0.35);
-  color: rgba(255,255,255,0.65);
-  font-family: sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 0 3px rgba(0,0,0,0.6));
-  transition: border-color 0.18s, color 0.18s, transform 0.15s, filter 0.18s;
-}
-.mobile-nav-btn:hover { border-color: #c8942a; color: #c8942a; filter: drop-shadow(0 0 4px rgba(200,148,42,0.4)); }
-.mobile-nav-btn:active { transform: translateY(-50%) scale(0.92); }
-.mobile-nav-btn--next { right: -19px; }
-.mobile-nav-btn--prev { left: -19px; }
 
 .hint-bar {
   font-family: 'Bangers', cursive;
