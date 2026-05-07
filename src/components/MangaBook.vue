@@ -55,7 +55,10 @@ const bookShellStyle = computed(() => {
 const pageLabels = ['COVER', 'PAGE 1', 'PAGE 2', 'PAGE 3', 'PAGE 4', 'END']
 const indicatorText = computed(() => `${pageLabels[currentPage.value]} / ${TOTAL_PAGES}`)
 const isPrevDisabled = computed(() => currentPage.value === 0)
-const isNextDisabled = computed(() => currentPage.value === TOTAL_PAGES)
+const isNextDisabled = computed(() => {
+  if (isMobile.value && bookIsOpen.value && mobilePage.value === 0) return false
+  return currentPage.value === TOTAL_PAGES
+})
 
 function pageZIndex(i: number) {
   return i < currentPage.value ? i : TOTAL_PAGES - i
