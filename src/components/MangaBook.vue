@@ -49,7 +49,12 @@ function updateScale() {
     byW = 1
   }
   const byH = Math.min(1.6, (vh - 32) / NATURAL_H)
-  bookScale.value = parseFloat(Math.min(byW, byH).toFixed(3))
+
+  // Don't update bookScale while reading — prevents mobile viewport
+  // changes (address bar hide/show) from causing mid-read scale jumps
+  if (appScene.value !== 'reader') {
+    bookScale.value = parseFloat(Math.min(byW, byH).toFixed(3))
+  }
 
   const csByW = Math.min(1, (vw - 24) / NATURAL_CASE_W)
   const csByH = Math.min(1, (vh - 160) / NATURAL_CASE_H)
