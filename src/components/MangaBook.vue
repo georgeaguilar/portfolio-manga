@@ -202,9 +202,8 @@ onUnmounted(() => {
               <div class="ch">CHAPTER 01 — HERO INTRODUCTION</div>
               <div style="flex:1;padding:0.5rem;display:flex;flex-direction:column;gap:4px;overflow:hidden;">
                 <div style="border:2px solid #0a0a0a;padding:0.6rem;font-size:0.65rem;font-weight:900;line-height:1.5;color:#111;font-style:italic;">"A full stack developer forging platforms used by over 1 million users. React, Vue, NestJS, Golang — all weapons mastered."</div>
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;flex:0 0 58px;">
-                  <div style="border:2px solid #0a0a0a;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;"><span style="font-family:'Bangers',cursive;font-size:1.4rem;color:#fff;line-height:1;">3+</span><span style="font-size:0.42rem;color:#888;letter-spacing:1px;text-transform:uppercase;">YRS</span></div>
-                  <div style="border:2px solid #0a0a0a;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;"><span style="font-family:'Bangers',cursive;font-size:1.4rem;color:#fff;line-height:1;">1M+</span><span style="font-size:0.42rem;color:#888;letter-spacing:1px;text-transform:uppercase;">USERS</span></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;flex:0 0 58px;">
+                  <div style="border:2px solid #0a0a0a;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;"><span style="font-family:'Bangers',cursive;font-size:1.4rem;color:#fff;line-height:1;">4+</span><span style="font-size:0.42rem;color:#888;letter-spacing:1px;text-transform:uppercase;">YRS</span></div>
                   <div style="border:2px solid #0a0a0a;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;"><span style="font-family:'Bangers',cursive;font-size:1.4rem;color:#fff;line-height:1;">8+</span><span style="font-size:0.42rem;color:#888;letter-spacing:1px;text-transform:uppercase;">PROJECTS</span></div>
                 </div>
                 <div style="border:2px solid #0a0a0a;padding:0.45rem;flex:1;overflow:hidden;">
@@ -215,28 +214,30 @@ onUnmounted(() => {
             </div>
           </template>
 
-          <!-- PAGE 2 FRONT: Chapter 02 Battle Log -->
+          <!-- PAGE 2 FRONT: Chapter 02 Battle Log (part 2) -->
           <template v-else-if="i - 1 === 2">
             <div style="display:flex;flex-direction:column;height:100%;background:#fff;">
-              <div class="ch">CHAPTER 02 — BATTLE LOG</div>
-              <div style="flex:1;padding:0.45rem;display:flex;flex-direction:column;gap:3px;overflow:hidden;">
-                <div style="border:2px solid #0a0a0a;background:#0a0a0a;padding:0.55rem;flex-shrink:0;">
-                  <div style="font-family:'Bangers',cursive;font-size:1rem;letter-spacing:2px;color:#fff;">CODE ÉXITOS</div>
-                  <div style="font-family:'Bangers',cursive;font-size:0.55rem;letter-spacing:3px;color:#555;margin-top:0.1rem;">SOFTWARE DEVELOPER · 2022–2025</div>
+              <div class="ch">&nbsp;</div>
+              <div style="border:2px solid #0a0a0a;background:#0a0a0a;padding:0.4rem 0.55rem;flex-shrink:0;">
+                <div style="font-family:'Bangers',cursive;font-size:0.9rem;letter-spacing:2px;color:#fff;">CODE ÉXITOS</div>
+                <div style="font-family:'Bangers',cursive;font-size:0.48rem;letter-spacing:3px;color:#555;">SOFTWARE DEVELOPER · 2022–2025</div>
+              </div>
+              <div style="flex:1;padding:0.4rem;display:flex;flex-direction:column;gap:3px;overflow:hidden;">
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ EV RENTAL &amp; SALES PLATFORM</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Designed and developed a platform for renting and selling electric vehicles, integrating payments and improving the infrastructure to provide efficient and secure services.</div>
                 </div>
-                <div style="border:2px solid #0a0a0a;padding:0.45rem;flex:1;position:relative;overflow:hidden;">
-                  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,#bbb 0.4px,transparent 0.4px);background-size:4px 4px;opacity:0.09;"></div>
-                  <ul style="list-style:none;display:grid;gap:0.28rem;position:relative;">
-                    <li style="font-size:0.6rem;line-height:1.4;padding-left:0.9rem;position:relative;"><span style="position:absolute;left:0;font-size:0.4rem;top:0.26rem;">◆</span>Job placement platform — <b>500,000+ users</b></li>
-                    <li style="font-size:0.6rem;line-height:1.4;padding-left:0.9rem;position:relative;"><span style="position:absolute;left:0;font-size:0.4rem;top:0.26rem;">◆</span>Time-tracking migration: <b>100K → 1M+ users</b></li>
-                    <li style="font-size:0.6rem;line-height:1.4;padding-left:0.9rem;position:relative;"><span style="position:absolute;left:0;font-size:0.4rem;top:0.26rem;">◆</span>EV rental platform + payment gateway</li>
-                    <li style="font-size:0.6rem;line-height:1.4;padding-left:0.9rem;position:relative;"><span style="position:absolute;left:0;font-size:0.4rem;top:0.26rem;">◆</span>GitHub Actions analytics dashboard</li>
-                    <li style="font-size:0.6rem;line-height:1.4;padding-left:0.9rem;position:relative;"><span style="position:absolute;left:0;font-size:0.4rem;top:0.26rem;">◆</span>Mobile event app + barcode scanning</li>
-                    <li style="font-size:0.6rem;line-height:1.4;padding-left:0.9rem;position:relative;"><span style="position:absolute;left:0;font-size:0.4rem;top:0.26rem;">◆</span>Vehicle sales platform — Canada</li>
-                  </ul>
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ MEDICAL EVENTS APPS</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Implemented interactive applications for medical events, integrating multimedia content and quizzes to increase attendee engagement.</div>
                 </div>
-                <div style="border:2px solid #0a0a0a;padding:0.38rem 0.45rem;flex-shrink:0;">
-                  <span class="tag">React</span><span class="tag">Vue</span><span class="tag">NestJS</span><span class="tag">Golang</span><span class="tag">Next.js</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Docker</span>
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ TIME-TRACKING MIGRATION</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Worked on migrating a time-tracking web application for a U.S. client, contributing to the platform's growth from 100,000 to over 1 million users.</div>
+                </div>
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ GITHUB ACTIONS DASHBOARD</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Developed an internal analytics dashboard to monitor GitHub Actions across all company repositories, providing centralized insights into CI/CD workflows, execution status, and performance metrics.</div>
                 </div>
               </div>
             </div>
@@ -245,37 +246,39 @@ onUnmounted(() => {
           <!-- PAGE 3 FRONT: Chapter 03 Skill Tree -->
           <template v-else-if="i - 1 === 3">
             <div style="display:flex;flex-direction:column;height:100%;background:#fff;">
-              <div class="ch">CHAPTER 03 — SKILL TREE</div>
+              <div class="ch">&nbsp;</div>
               <div style="flex:1;padding:0.4rem;display:flex;flex-direction:column;gap:2px;overflow:hidden;">
                 <div style="border:2px solid #0a0a0a;padding:0.42rem 0.52rem;">
                   <div style="font-family:'Bangers',cursive;font-size:0.7rem;letter-spacing:2px;border-bottom:2px solid #0a0a0a;padding-bottom:0.18rem;margin-bottom:0.32rem;">FRONTEND</div>
                   <div class="sr"><span class="sn">React</span><div class="st"><div class="sf" style="width:90%"></div></div></div>
-                  <div class="sr"><span class="sn">Vue</span><div class="st"><div class="sf" style="width:85%"></div></div></div>
-                  <div class="sr"><span class="sn">Next.js</span><div class="st"><div class="sf" style="width:80%"></div></div></div>
-                  <div class="sr"><span class="sn">Tailwind</span><div class="st"><div class="sf" style="width:88%"></div></div></div>
+                  <div class="sr"><span class="sn">Vue</span><div class="st"><div class="sf" style="width:90%"></div></div></div>
+                  <div class="sr"><span class="sn">Next.js</span><div class="st"><div class="sf" style="width:82%"></div></div></div>
+                  <div class="sr"><span class="sn">Tailwind</span><div class="st"><div class="sf" style="width:90%"></div></div></div>
                 </div>
                 <div style="border:2px solid #0a0a0a;padding:0.42rem 0.52rem;">
                   <div style="font-family:'Bangers',cursive;font-size:0.7rem;letter-spacing:2px;border-bottom:2px solid #0a0a0a;padding-bottom:0.18rem;margin-bottom:0.32rem;">BACKEND</div>
                   <div class="sr"><span class="sn">NestJS</span><div class="st"><div class="sf" style="width:90%"></div></div></div>
-                  <div class="sr"><span class="sn">Node.js</span><div class="st"><div class="sf" style="width:85%"></div></div></div>
+                  <div class="sr"><span class="sn">Node.js</span><div class="st"><div class="sf" style="width:90%"></div></div></div>
                   <div class="sr"><span class="sn">Golang</span><div class="st"><div class="sf" style="width:70%"></div></div></div>
                   <div class="sr"><span class="sn">.NET</span><div class="st"><div class="sf" style="width:65%"></div></div></div>
                 </div>
                 <div style="border:2px solid #0a0a0a;padding:0.42rem 0.52rem;flex:1;">
-                  <div style="font-family:'Bangers',cursive;font-size:0.7rem;letter-spacing:2px;border-bottom:2px solid #0a0a0a;padding-bottom:0.18rem;margin-bottom:0.32rem;">CLOUD / DB / TESTING</div>
+                  <div style="font-family:'Bangers',cursive;font-size:0.7rem;letter-spacing:2px;border-bottom:2px solid #0a0a0a;padding-bottom:0.18rem;margin-bottom:0.32rem;">CLOUD / CI·CD / AI</div>
                   <div class="sr"><span class="sn">AWS</span><div class="st"><div class="sf" style="width:80%"></div></div></div>
                   <div class="sr"><span class="sn">Docker</span><div class="st"><div class="sf" style="width:76%"></div></div></div>
-                  <div class="sr"><span class="sn">PostgreSQL</span><div class="st"><div class="sf" style="width:82%"></div></div></div>
-                  <div class="sr"><span class="sn">Cypress</span><div class="st"><div class="sf" style="width:68%"></div></div></div>
+                  <div class="sr"><span class="sn">GH Actions</span><div class="st"><div class="sf" style="width:78%"></div></div></div>
+                  <div class="sr"><span class="sn">Claude</span><div class="st"><div class="sf" style="width:90%"></div></div></div>
+                  <div class="sr"><span class="sn">Cursor</span><div class="st"><div class="sf" style="width:80%"></div></div></div>
+                  <div class="sr"><span class="sn">Copilot</span><div class="st"><div class="sf" style="width:72%"></div></div></div>
                 </div>
               </div>
             </div>
           </template>
 
-          <!-- PAGE 4 FRONT: Chapter 04 Origin Arc -->
+          <!-- PAGE 4 FRONT: Chapter 04 Training Arc (part 2) -->
           <template v-else-if="i - 1 === 4">
             <div style="display:flex;flex-direction:column;height:100%;background:#fff;">
-              <div class="ch">CHAPTER 04 — ORIGIN ARC</div>
+              <div class="ch">&nbsp;</div>
               <div style="flex:1;overflow:hidden;background:#000;position:relative;">
                 <img :src="originArcImg" style="width:100%;height:100%;object-fit:cover;" alt="Origin Arc" />
               </div>
@@ -303,33 +306,39 @@ onUnmounted(() => {
             </div>
           </template>
 
-          <!-- PAGE 1 BACK: Power Levels / Impact Stats -->
+          <!-- PAGE 1 BACK: Chapter 02 Battle Log (part 1) -->
           <template v-else-if="i - 1 === 1">
             <div style="display:flex;flex-direction:column;height:100%;background:#fff;">
-              <div class="ch">CHAPTER 01 — POWER LEVELS</div>
-              <div style="flex:1;padding:0.45rem;display:flex;flex-direction:column;gap:3px;overflow:hidden;">
-                <div style="border:2px solid #0a0a0a;background:#0a0a0a;padding:0.9rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.4rem;flex-shrink:0;position:relative;overflow:hidden;">
-                  <div style="font-family:'Bangers',cursive;font-size:2.5rem;color:#fff;opacity:0.05;position:absolute;right:-5px;bottom:-8px;">POWER!</div>
-                  <div style="text-align:center;position:relative;z-index:1;"><span style="font-family:'Bangers',cursive;font-size:1.5rem;color:#fff;display:block;line-height:1;">500K+</span><span style="font-size:0.42rem;color:#555;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:0.1rem;">Users</span></div>
-                  <div style="text-align:center;position:relative;z-index:1;"><span style="font-family:'Bangers',cursive;font-size:1.5rem;color:#fff;display:block;line-height:1;">10x</span><span style="font-size:0.42rem;color:#555;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:0.1rem;">Growth</span></div>
-                  <div style="text-align:center;position:relative;z-index:1;"><span style="font-family:'Bangers',cursive;font-size:1.5rem;color:#fff;display:block;line-height:1;">8+</span><span style="font-size:0.42rem;color:#555;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:0.1rem;">Projects</span></div>
+              <div class="ch">CHAPTER 02 — BATTLE LOG</div>
+              <div style="border:2px solid #0a0a0a;background:#0a0a0a;padding:0.4rem 0.55rem;flex-shrink:0;">
+                <div style="font-family:'Bangers',cursive;font-size:0.9rem;letter-spacing:2px;color:#fff;">CODE ÉXITOS</div>
+                <div style="font-family:'Bangers',cursive;font-size:0.48rem;letter-spacing:3px;color:#555;">SOFTWARE DEVELOPER · 2022–2025</div>
+              </div>
+              <div style="flex:1;padding:0.4rem;display:flex;flex-direction:column;gap:3px;overflow:hidden;">
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ JOB PLACEMENT PLATFORM</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Developed and optimized a scalable web platform for a U.S. client used by over 500,000 users, designed to streamline job placement by connecting professionals with hiring companies.</div>
                 </div>
-                <div style="border:2px solid #0a0a0a;padding:0.45rem;flex:1;">
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
-                    <div style="border:2px solid #0a0a0a;padding:0.5rem;text-align:center;"><div style="font-family:'Bangers',cursive;font-size:1rem;">3</div><div style="font-size:0.48rem;font-weight:700;color:#555;">COUNTRIES</div><div style="font-size:0.44rem;color:#999;">USA · CANADA · HN</div></div>
-                    <div style="border:2px solid #0a0a0a;padding:0.5rem;text-align:center;"><div style="font-family:'Bangers',cursive;font-size:1rem;">3+</div><div style="font-size:0.48rem;font-weight:700;color:#555;">YEARS</div><div style="font-size:0.44rem;color:#999;">2022–2025</div></div>
-                    <div style="border:2px solid #0a0a0a;padding:0.5rem;text-align:center;"><div style="font-family:'Bangers',cursive;font-size:1rem;">12+</div><div style="font-size:0.48rem;font-weight:700;color:#555;">FRAMEWORKS</div></div>
-                    <div style="border:2px solid #0a0a0a;padding:0.5rem;text-align:center;"><div style="font-family:'Bangers',cursive;font-size:1rem;">∞</div><div style="font-size:0.48rem;font-weight:700;color:#555;">COMMITS</div></div>
-                  </div>
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ VEHICLE SALES PLATFORM</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Worked on a vehicle sales platform for a Canadian client, enhancing the user experience and optimizing the overall performance of the application.</div>
+                </div>
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ ENTERPRISE MANAGEMENT PLATFORM</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Contributed to an internal enterprise platform to centralize company data, and built analytics dashboards to visualize key business metrics and support data-driven decision-making.</div>
+                </div>
+                <div style="border:2px solid #0a0a0a;padding:0.42rem 0.5rem;flex:1;display:flex;flex-direction:column;justify-content:center;">
+                  <div style="font-size:0.58rem;font-weight:900;color:#0a0a0a;margin-bottom:0.18rem;">◆ EVENT REGISTRATION MOBILE APP</div>
+                  <div style="font-size:0.54rem;line-height:1.45;color:#333;">Created a mobile application for event attendee registration, incorporating barcode scanning and manual data entry for an improved user experience.</div>
                 </div>
               </div>
             </div>
           </template>
 
-          <!-- PAGE 2 BACK: Arsenal Continued -->
+          <!-- PAGE 2 BACK: Chapter 03 Skill Tree (part 1) -->
           <template v-else-if="i - 1 === 2">
             <div style="display:flex;flex-direction:column;height:100%;background:#fff;">
-              <div class="ch">CHAPTER 02 — ARSENAL CONTINUED</div>
+              <div class="ch">CHAPTER 03 — SKILL TREE</div>
               <div style="flex:1;padding:0.4rem;display:flex;flex-direction:column;gap:2px;overflow:hidden;">
                 <div style="border:2px solid #0a0a0a;padding:0.42rem 0.52rem;">
                   <div style="font-family:'Bangers',cursive;font-size:0.7rem;letter-spacing:2px;border-bottom:2px solid #0a0a0a;padding-bottom:0.18rem;margin-bottom:0.32rem;">DATABASES</div>
@@ -359,18 +368,15 @@ onUnmounted(() => {
           <!-- PAGE 3 BACK: Training Arc / Education -->
           <template v-else-if="i - 1 === 3">
             <div style="display:flex;flex-direction:column;height:100%;background:#fff;">
-              <div class="ch">CHAPTER 03 — TRAINING ARC</div>
+              <div class="ch">CHAPTER 04 — TRAINING ARC</div>
               <div style="flex:1;padding:0.45rem;display:flex;flex-direction:column;gap:3px;overflow:hidden;">
-                <div style="border:2px solid #0a0a0a;padding:0.52rem;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">UNITEC</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Mechatronics Engineering</div><div style="font-size:0.56rem;color:#888;font-weight:700;">2012–2017</div></div>
-                <div style="border:2px solid #0a0a0a;padding:0.52rem;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">UNITEC</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Master's in Finance</div><div style="font-size:0.56rem;color:#888;font-weight:700;">2018–2021</div></div>
-                <div style="border:2px solid #0a0a0a;padding:0.52rem;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">CODECADEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Full-Stack Engineer Career Path</div></div>
-                <div style="border:2px solid #0a0a0a;padding:0.52rem;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">UDEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">C# Language Course</div></div>
-                <div style="border:2px solid #0a0a0a;background:#0a0a0a;padding:0.65rem;flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
-                  <div style="font-family:'Bangers',cursive;font-size:2.5rem;color:#fff;opacity:0.05;position:absolute;right:-5px;bottom:-5px;line-height:0.85;">RARE BUILD</div>
-                  <div style="font-family:'Bangers',cursive;font-size:0.56rem;letter-spacing:3px;color:#444;position:relative;z-index:1;">PROTAGONIST CLASS</div>
-                  <div style="font-family:'Bangers',cursive;font-size:0.88rem;color:#fff;letter-spacing:2px;line-height:1.4;margin-top:0.2rem;position:relative;z-index:1;">ENGINEER → FINANCE<br>→ FULL STACK DEV</div>
-                  <div style="font-size:0.58rem;color:#444;font-style:italic;margin-top:0.3rem;position:relative;z-index:1;">A rare multi-class character.</div>
-                </div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">UNITEC</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Mechatronics Engineering</div><div style="font-size:0.56rem;color:#888;font-weight:700;">2012–2017</div></div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">UNITEC</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Master's in Finance</div><div style="font-size:0.56rem;color:#888;font-weight:700;">2018–2021</div></div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">CODECADEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Full-Stack Engineer Career Path</div></div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">UDEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">C# Language Course</div></div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">CODECADEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Learn JavaScript Course</div></div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">CODECADEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Learn HTML Course</div></div>
+                <div style="border:2px solid #0a0a0a;padding:0.52rem;flex:1;display:flex;flex-direction:column;justify-content:center;"><div style="font-family:'Bangers',cursive;font-size:0.88rem;letter-spacing:2px;">CODECADEMY</div><div style="font-size:0.68rem;font-weight:700;color:#333;">Learn Responsive Design Course</div></div>
               </div>
             </div>
           </template>
