@@ -1,1 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1a1a2e;
+  font-family: 'Noto Sans JP', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ── Shared manga page styles ── */
+.jump-bar {
+  background: #0a0a0a;
+  border-bottom: 3px solid #c8942a;
+  padding: 0.28rem 0.7rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.gold-frame { position: absolute; inset: 8px; border: 2px solid #c8942a; pointer-events: none; z-index: 10; }
+.gold-frame::after { content: ''; position: absolute; inset: 4px; border: 1px solid rgba(200,148,42,0.35); }
+.ch {
+  background: #0a0a0a; padding: 0.25rem 0.7rem;
+  font-family: 'Bangers', cursive; font-size: 0.52rem; letter-spacing: 3px; color: #fff;
+  border-bottom: 2px solid #0a0a0a; flex-shrink: 0;
+}
+.tag { display: inline-block; background: #0a0a0a; color: #fff; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.08rem 0.3rem; margin: 0.06rem; font-family: monospace; }
+.sr { display: flex; align-items: center; gap: 0.3rem; margin-bottom: 0.2rem; }
+.sn { font-size: 0.56rem; font-weight: 700; flex: 0 0 60px; }
+.st { flex: 1; height: 4px; background: #e8e8e8; border: 1px solid #ccc; overflow: hidden; }
+.sf { height: 100%; background: #0a0a0a; }
+.crow { display: flex; align-items: stretch; border-bottom: 1.5px solid #1a1a1a; }
+.crow:last-child { border-bottom: none; }
+.clbl { font-family: 'Bangers', cursive; font-size: 0.52rem; letter-spacing: 1.5px; background: #0a0a0a; color: #fff; padding: 0.48rem; min-width: 64px; display: flex; align-items: center; border-right: 2px solid #0a0a0a; }
+.cval { padding: 0.48rem 0.58rem; font-size: 0.56rem; font-weight: 700; display: flex; align-items: center; word-break: break-all; }
