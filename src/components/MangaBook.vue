@@ -59,11 +59,18 @@ function updateScale() {
 function onConfirm() { appScene.value = 'reader' }
 function onBack() { appScene.value = 'shelf' }
 
+let resizeTimer: ReturnType<typeof setTimeout>
+function onResize() {
+  clearTimeout(resizeTimer)
+  resizeTimer = setTimeout(updateScale, 200)
+}
+
 onMounted(() => {
   updateScale()
-  window.addEventListener('resize', updateScale)
+  window.addEventListener('resize', onResize)
 })
 onUnmounted(() => {
-  window.removeEventListener('resize', updateScale)
+  window.removeEventListener('resize', onResize)
+  clearTimeout(resizeTimer)
 })
 </script>
