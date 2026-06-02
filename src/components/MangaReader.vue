@@ -179,14 +179,15 @@ const currentPage = ref(0)
 const bookIsOpen = computed(() => currentPage.value > 0)
 const isMobile = computed(() => props.bookScale <= 1)
 const mobilePage = ref(0)
+const isTransitioning = ref(false)
 
 const sceneTransform = computed(() => {
-  if (!bookIsOpen.value) return 'translateX(0)'
-  if (props.bookScale > 1) return 'translateX(150px)'
-  return mobilePage.value === 0 ? 'translateX(300px)' : 'translateX(0)'
+  if (!bookIsOpen.value) return 'translateX(0) translateZ(0)'
+  if (props.bookScale > 1) return 'translateX(150px) translateZ(0)'
+  return mobilePage.value === 0 ? 'translateX(300px) translateZ(0)' : 'translateX(0) translateZ(0)'
 })
 const bookTransform = computed(() =>
-  bookIsOpen.value ? 'rotateX(3deg)' : 'rotateY(-20deg) rotateX(5deg)'
+  bookIsOpen.value ? 'rotateX(3deg) translateZ(0)' : 'rotateY(-20deg) rotateX(5deg) translateZ(0)'
 )
 
 const pageLabels = ['COVER', 'PAGE 1', 'PAGE 2', 'PAGE 3', 'PAGE 4', 'END']
@@ -202,16 +203,32 @@ function isFlipped(i: number) { return i < currentPage.value }
 function remainingEdges(i: number) { return i < (TOTAL_PAGES - currentPage.value) * 3 }
 
 function nextPage() {
+  if (isTransitioning.value) return
   if (isMobile.value && bookIsOpen.value && mobilePage.value === 0) { mobilePage.value = 1; return }
   if (currentPage.value >= TOTAL_PAGES) return
+  // On mobile: pre-set mobilePage=1 so opening the book keeps the scene still
+  if (isMobile.value && !bookIsOpen.value) mobilePage.value = 1
   currentPage.value++
-  mobilePage.value = 0
+  if (isMobile.value) {
+    // Page flips first (scene stays put), then scene slides to show left side
+    isTransitioning.value = true
+    setTimeout(() => { mobilePage.value = 0; isTransitioning.value = false }, 800)
+  } else {
+    mobilePage.value = 0
+  }
 }
 function prevPage() {
+  if (isTransitioning.value) return
   if (isMobile.value && bookIsOpen.value && mobilePage.value === 1) { mobilePage.value = 0; return }
   if (currentPage.value <= 0) return
-  currentPage.value--
-  mobilePage.value = isMobile.value ? 1 : 0
+  if (isMobile.value) {
+    // Scene slides to right side first, then page unflips
+    isTransitioning.value = true
+    mobilePage.value = 1
+    setTimeout(() => { currentPage.value--; isTransitioning.value = false }, 800)
+  } else {
+    currentPage.value--
+  }
 }
 function handlePageClick(i: number) {
   if (isFlipped(i)) prevPage()
